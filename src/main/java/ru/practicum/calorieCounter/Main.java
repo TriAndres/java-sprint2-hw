@@ -6,17 +6,17 @@ import java.util.Scanner;
 /*
 Вывод меню и выбор пункта
  */
-class App {
+class Main {
     private final Scanner scanner;
     private final StepTracker stepTracker;
 
-    public App() {
+    public Main() {
         scanner = new Scanner(System.in);
         stepTracker = new StepTracker(scanner);
     }
 
     public static void main(String[] args) {
-        new App().game();
+        new Main().game();
     }
 
     public void game() {
