@@ -1,20 +1,22 @@
-package ru.practicum;
+package ru.practicum.calorieCounter;
+
+import ru.practicum.calorieCounter.model.StepTracker;
 
 import java.util.Scanner;
 /*
 Вывод меню и выбор пункта
  */
-class Main {
+class App {
     private final Scanner scanner;
     private final StepTracker stepTracker;
 
-    public Main() {
+    public App() {
         scanner = new Scanner(System.in);
         stepTracker = new StepTracker(scanner);
     }
 
     public static void main(String[] args) {
-        new Main().game();
+        new App().game();
     }
 
     public void game() {

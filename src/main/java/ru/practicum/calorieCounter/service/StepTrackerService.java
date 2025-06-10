@@ -1,18 +1,18 @@
-package ru.practicum;
+package ru.practicum.calorieCounter.service;
 
 import java.util.Scanner;
 
-class StepTracker {
+class StepTrackerService {
     private Scanner scanner;
     private int goalByStepsPerDay = 10_000;
     private final int SIZE = 12;
-    MonthData[] monthToData = new MonthData[SIZE];
+    MonthDataService[] monthToData = new MonthDataService[SIZE];
 
-    StepTracker(Scanner scan) {
+    StepTrackerService(Scanner scan) {
         scanner = scan;
 
         for (int month = 0; month < monthToData.length; month++) {
-            monthToData[month] = new MonthData();
+            monthToData[month] = new MonthDataService();
         }
     }
 
@@ -51,7 +51,7 @@ class StepTracker {
             }
         }
         // получение соответствующего объекта MonthData из массива
-        MonthData monthData = monthToData[month - 1];
+        MonthDataService monthData = monthToData[month - 1];
         // сохранение полученных данных
         monthData.days[day - 1] = step;
         System.out.println("Записано.");
@@ -72,7 +72,7 @@ class StepTracker {
     }
 
     public void printStatistic() {
-        Converter converter = new Converter();
+        ConverterService converter = new ConverterService();
         System.out.println("Введите номер месяца");
         // ввод и проверка номера месяца
         int month = 0;
@@ -87,7 +87,7 @@ class StepTracker {
         }
 
         //* monthData = // получение соответствующего месяца
-        MonthData monthData = monthToData[month];
+        MonthDataService monthData = monthToData[month];
         // получение суммы шагов за месяц
         int sumSteps = monthData.sumStepsFromMonth();
         // вывод общей статистики по дням
