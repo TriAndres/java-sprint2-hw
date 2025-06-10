@@ -1,4 +1,4 @@
 package ru.practicum.calorieCounter.repository;
 
-public class StepTrackerRepository {
+public interface StepTrackerRepository {
 }

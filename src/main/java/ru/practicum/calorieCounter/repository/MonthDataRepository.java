@@ -1,4 +1,4 @@
 package ru.practicum.calorieCounter.repository;
 
-public class MonthDataRepository {
+public interface MonthDataRepository {
 }
