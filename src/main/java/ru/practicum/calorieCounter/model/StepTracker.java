@@ -2,32 +2,19 @@ package ru.practicum.calorieCounter.model;
 
 public class StepTracker {
     private Long id;
-    private Integer year;
-    private Integer month;
+    private MonthOrder month;
     private Integer day;
     private Integer step;
-    private Integer goalSteps;
 
     public StepTracker(Long id,
-                       Integer year,
-                       Integer month,
+                       MonthOrder month,
                        Integer day,
-                       Integer step,
-                       Integer goalSteps) {
+                       Integer step
+    ) {
         this.id = id;
-        this.year = year;
         this.month = month;
         this.day = day;
         this.step = step;
-        this.goalSteps = goalSteps;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
     }
 
     public Long getId() {
@@ -38,11 +25,11 @@ public class StepTracker {
         this.id = id;
     }
 
-    public Integer getMonth() {
+    public MonthOrder getMonth() {
         return month;
     }
 
-    public void setMonth(Integer month) {
+    public void setMonth(MonthOrder month) {
         this.month = month;
     }
 
@@ -62,21 +49,11 @@ public class StepTracker {
         this.step = step;
     }
 
-    public Integer getGoalSteps() {
-        return goalSteps;
-    }
-
-    public void setGoalSteps(Integer goalSteps) {
-        this.goalSteps = goalSteps;
-    }
-
     @Override
     public String toString() {
         return id +
-                "/" + year +
                 "/" + month +
                 "/" + day +
-                "/" + step +
-                "/" + goalSteps;
+                "/" + step;
     }
 }
