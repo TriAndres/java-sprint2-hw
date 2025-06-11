@@ -1,8 +1,8 @@
-package ru.practicum.calorieCounter.service;
+package ru.practicum.calorieCounter.service.methods;
 /*
 Логика по подсчёту статистики за месяц; хранение данных конкретного месяца
  */
-public class MonthDataService {
+public class MonthDataMethods {
 //    private final int SIZE = 30;
 //    int[] days = new int[SIZE];
 //

@@ -56,7 +56,7 @@ public class StepTrackerFile extends StepTrackerRepositoryImpl {
         saveStepTracker();
     }
 
-    public static StepTrackerFile loadFromFile(String file) {
+    public static StepTrackerFile loadFromFileStepTracker(String file) {
         StepTrackerFile stepTrackerFile = new StepTrackerFile(file);
         try (BufferedReader reader = new BufferedReader(new BufferedReader(new FileReader(file)))) {
             String line = null;
@@ -68,7 +68,6 @@ public class StepTrackerFile extends StepTrackerRepositoryImpl {
                                 MonthOrder.valueOf(row[1]),
                                 Integer.parseInt(row[2]),
                                 Integer.parseInt(row[3])
-                                //Integer.parseInt(row[5])
                         )
                 );
             }
