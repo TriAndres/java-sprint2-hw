@@ -1,8 +1,9 @@
-package ru.practicum.calorieCounter.service.methods;
+package ru.practicum.calorieCounter.service;
+
 /*
 Преобразование шагов в килокалории и километры
  */
-public class ConverterMethods {
+public class ConverterService {
     //1 шаг = 75 см;
     private final double stepLength = 0.75;
     // 1 шаг =  50 кал;   1 ккал =  1000 кал

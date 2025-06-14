@@ -2,7 +2,7 @@ package ru.practicum.calorieCounter.controller;
 
 import ru.practicum.calorieCounter.file.GoalStepsFile;
 import ru.practicum.calorieCounter.file.StepTrackerFile;
-import ru.practicum.calorieCounter.service.methods.ConsoleMethods;
+import ru.practicum.calorieCounter.service.ConsoleService;
 import ru.practicum.calorieCounter.service.GoalStepsServiceImpl;
 import ru.practicum.calorieCounter.service.StepTrackerServiceImpl;
 
@@ -15,14 +15,15 @@ public class StepTrackerController {
     private static final String fileGoalSteps = "src\\main\\java\\ru\\practicum\\calorieCounter\\file\\GoalStepsFile.txt";
     private static final GoalStepsFile goalStepsFile = loadFromFilegoalSteps(fileGoalSteps);
 
-    public static ConsoleMethods consoleMethods() {
-        return new ConsoleMethods();
+    public static ConsoleService consoleMethods() {
+        return new ConsoleService();
     }
+
     public static StepTrackerServiceImpl stepTrackerService() {
         return new StepTrackerServiceImpl(stepTrackerFile);
     }
 
     public static GoalStepsServiceImpl goalStepsService() {
-        return  new GoalStepsServiceImpl(goalStepsFile);
+        return new GoalStepsServiceImpl(goalStepsFile);
     }
 }
