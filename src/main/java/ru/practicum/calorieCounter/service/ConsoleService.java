@@ -1,11 +1,11 @@
-package ru.practicum.calorieCounter.service.methods;
+package ru.practicum.calorieCounter.service;
 
 import java.util.Scanner;
 
-public class ConsoleMethods {
+public class ConsoleService {
     private final Scanner scanner;
 
-    public ConsoleMethods() {
+    public ConsoleService() {
         scanner = new Scanner(System.in);
     }
 

@@ -14,7 +14,7 @@ public enum MonthOrder {
     }
 
     public static MonthOrder from(String order) {
-        switch (order.toUpperCase()) {
+        switch (order) {
             case "1":
                 return JANUARY;
             case "2":
@@ -39,7 +39,6 @@ public enum MonthOrder {
                 return NOVEMBER;
             case "12":
                 return DECEMBER;
-
             default:
                 return null;
         }

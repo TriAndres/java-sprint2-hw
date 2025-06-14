@@ -58,7 +58,7 @@ public class StepTrackerFile extends StepTrackerRepositoryImpl {
 
     public static StepTrackerFile loadFromFileStepTracker(String file) {
         StepTrackerFile stepTrackerFile = new StepTrackerFile(file);
-        try (BufferedReader reader = new BufferedReader(new BufferedReader(new FileReader(file)))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line = null;
             while ((line = reader.readLine()) != null) {
                 String[] row = line.split("/");

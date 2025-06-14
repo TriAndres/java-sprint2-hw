@@ -2,7 +2,10 @@ package ru.practicum.calorieCounter.repository;
 
 import ru.practicum.calorieCounter.model.StepTracker;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 public class StepTrackerRepositoryImpl implements StepTrackerRepository {
     private final Map<Long, StepTracker> stepTrackerMap = new HashMap<>();
