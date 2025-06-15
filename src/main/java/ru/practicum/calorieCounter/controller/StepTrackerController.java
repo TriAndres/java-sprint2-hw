@@ -2,7 +2,6 @@ package ru.practicum.calorieCounter.controller;
 
 import ru.practicum.calorieCounter.file.GoalStepsFile;
 import ru.practicum.calorieCounter.file.StepTrackerFile;
-import ru.practicum.calorieCounter.service.ConsoleService;
 import ru.practicum.calorieCounter.service.GoalStepsServiceImpl;
 import ru.practicum.calorieCounter.service.StepTrackerServiceImpl;
 
