@@ -1,48 +1,45 @@
 package ru.practicum.calorieCounter.service;
 
-import ru.practicum.calorieCounter.file.GoalStepsFile;
-import ru.practicum.calorieCounter.model.GoalSteps;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import ru.practicum.calorieCounter.dto.GoalStepsDTO;
+import ru.practicum.calorieCounter.repository.GoalStepsRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-import static ru.practicum.calorieCounter.controller.StepTrackerController.consoleMethods;
+import static ru.practicum.calorieCounter.mapper.GoalStepsMapper.*;
 
+@Service
+@RequiredArgsConstructor
+@Slf4j
 public class GoalStepsServiceImpl implements GoalStepsService {
-    private final GoalStepsFile goalStepsFile;
+    private final GoalStepsRepository goalStepsRepository;
 
-    public GoalStepsServiceImpl(GoalStepsFile goalStepsFile) {
-        this.goalStepsFile = goalStepsFile;
+    public List<GoalStepsDTO> findAll() {
+        return new ArrayList<>(toListDTOGoalSteps(goalStepsRepository.findAll()));
     }
 
-    public List<GoalSteps> findAll() {
-        return new ArrayList<>(goalStepsFile.findAll());
-    }
-
-    public void changeStepGoal() {
-        //goalByStepsPerDay-он будет менять это значение на то, которое ввёл пользователь.
-        int max = 0;
-        while (true) {
-            System.out.println("Введите новую цель по Шагам в день");
-            int goalByStepsPerDay = consoleMethods().getInteger();
-            if (goalByStepsPerDay > 0) {
-                goalStepsFile.save(new GoalSteps(getNextId(), goalByStepsPerDay));
-                System.out.println("Записано");
-                break;
-            }
+    //goalByStepsPerDay-он будет менять это значение на то, которое ввёл пользователь.
+    public GoalStepsDTO create(GoalStepsDTO goalStepsDTO) {
+        if (goalStepsDTO.getChangeStepGoal() > 0) {
+            goalStepsRepository.save(toModelGoalSteps(goalStepsDTO));
+            log.info("Добавлен в список {}", goalStepsDTO);
+            return goalStepsDTO;
         }
+        log.info("Меньше нуля.");
+        throw new NullPointerException("Меньше нуля.");
     }
 
-    public int goalByStepsPerDay() {
-        return goalStepsFile.findById(goalStepsFile.findAll().size()).getGoalSteps();
+    public Optional<GoalStepsDTO> findBiId(long id) {
+        log.info("Вывод элемента из списка по id = {}", id);
+        return Optional.ofNullable(toDTOGoalSteps(goalStepsRepository.findById(id).orElseThrow()));
     }
 
-    private long getNextId() {
-        long currentMaxId = goalStepsFile.findAll()
-                .stream()
-                .mapToLong(GoalSteps::getId)
-                .max()
-                .orElse(0);
-        return ++currentMaxId;
+    @Override
+    public void deleteAll() {
+        goalStepsRepository.deleteAll();
     }
 }

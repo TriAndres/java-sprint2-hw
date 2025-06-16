@@ -7,5 +7,5 @@ import lombok.Data;
 @Builder
 public class GoalStepsDTO {
     private Long id;
-    private Integer goalSteps;
+    private Integer changeStepGoal;
 }

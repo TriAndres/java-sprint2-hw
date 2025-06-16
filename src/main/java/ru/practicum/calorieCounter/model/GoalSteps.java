@@ -20,5 +20,5 @@ public class GoalSteps {
     private Long id;
     @NonNull
     @Column(name = "goal_steps")
-    private Integer goalSteps;
+    private Integer changeStepGoal;
 }

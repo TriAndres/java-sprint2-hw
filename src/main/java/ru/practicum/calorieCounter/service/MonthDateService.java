@@ -1,5 +1,7 @@
 package ru.practicum.calorieCounter.service;
 
+import lombok.Getter;
+import org.springframework.stereotype.Service;
 import ru.practicum.calorieCounter.model.StepTracker;
 
 import java.util.List;
@@ -7,6 +9,8 @@ import java.util.List;
 /*
 Логика по подсчёту статистики за месяц; хранение данных конкретного месяца
  */
+@Getter
+@Service
 public class MonthDateService {
     private final List<StepTracker> trackerList;
 
@@ -14,15 +18,13 @@ public class MonthDateService {
         this.trackerList = trackerList;
     }
 
-    public List<StepTracker> getTrackerList() {
-        return trackerList;
-    }
-
-    public void printDaysAndStepsFromMonth() {
+    public String printDaysAndStepsFromMonth() {
+        StringBuilder line = new StringBuilder();
         for (StepTracker tracker : trackerList) {
             // вывод элементов массива в нужном формате
-            System.out.println(tracker.getDay() + " день: " + tracker.getStep());
+            line.append(tracker.getDay()).append(" день: ").append(tracker.getStep()).append("\n");
         }
+        return line.toString();
     }
 
     public int sumStepsFromMonth() {

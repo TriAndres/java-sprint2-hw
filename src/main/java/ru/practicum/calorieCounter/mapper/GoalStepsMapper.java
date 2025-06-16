@@ -11,28 +11,28 @@ import java.util.List;
 @Data
 @Builder
 public class GoalStepsMapper {
-    public static GoalStepsDTO toDTO(GoalSteps goalSteps) {
+    public static GoalStepsDTO toDTOGoalSteps(GoalSteps goalSteps) {
         return GoalStepsDTO.builder()
                 .id(goalSteps.getId())
-                .goalSteps(goalSteps.getGoalSteps())
+                .changeStepGoal(goalSteps.getChangeStepGoal())
                 .build();
     }
 
-    public static List<GoalStepsDTO> toListDTO(List<GoalSteps> goalSteps) {
-        return goalSteps.stream().map(GoalStepsMapper::toDTO).toList();
+    public static List<GoalStepsDTO> toListDTOGoalSteps(List<GoalSteps> goalSteps) {
+        return goalSteps.stream().map(GoalStepsMapper::toDTOGoalSteps).toList();
     }
 
-    public static GoalSteps toModel(GoalStepsDTO goalStepsDTO) {
+    public static GoalSteps toModelGoalSteps(GoalStepsDTO goalStepsDTO) {
         return GoalSteps.builder()
                 .id(goalStepsDTO.getId())
-                .goalSteps(goalStepsDTO.getGoalSteps())
+                .changeStepGoal(goalStepsDTO.getChangeStepGoal())
                 .build();
     }
 
-    public static List<GoalSteps> toListModel(List<GoalStepsDTO> goalStepsDTO) {
+    public static List<GoalSteps> toListModelGoalSteps(List<GoalStepsDTO> goalStepsDTO) {
         List<GoalSteps> goalStepsList = new ArrayList<>();
         for (GoalStepsDTO dto : goalStepsDTO) {
-            goalStepsList.add(toModel(dto));
+            goalStepsList.add(toModelGoalSteps(dto));
         }
         return goalStepsList;
     }
