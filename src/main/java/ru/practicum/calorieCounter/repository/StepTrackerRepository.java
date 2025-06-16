@@ -1,17 +1,7 @@
 package ru.practicum.calorieCounter.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import ru.practicum.calorieCounter.model.StepTracker;
 
-import java.util.Collection;
-
-public interface StepTrackerRepository {
-    Collection<StepTracker> findAll();
-
-    StepTracker save(StepTracker stepTracker);
-
-    StepTracker findById(long id);
-
-    void deleteById(long id);
-
-    void deleteAll();
+public interface StepTrackerRepository extends JpaRepository<StepTracker, Long> {
 }
